@@ -9,11 +9,15 @@
     "postinstall": "nuxt prepare",
     "preview": "nuxt preview"
   },
+  "dependencies": {
+    "cronstrue": "^2.27.0"
+  },
   "devDependencies": {
+    "@nuxt/eslint-config": "^0.1.1",
     "@nuxthq/ui": "^2.1.0",
     "@types/node": "^18",
-    "nuxt": "^3.5.1",
-    "@nuxt/eslint-config": "^0.1.1",
-    "eslint": "^8.41.0"
+    "@vue/eslint-config-airbnb": "^7.0.0",
+    "eslint": "^8.41.0",
+    "nuxt": "^3.5.1"
   }
 }
