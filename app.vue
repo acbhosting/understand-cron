@@ -1,30 +1,36 @@
 <template>
-  <UContainer>
-    <div class="h-screen grid place-items-center">
-      <ClientOnly class="w-full max-w-sm">
+  <div class="min-h-screen flex flex-col">
+    <UContainer class="flex flex-grow justify-center items-center w-full">
+      <ClientOnly>
         <UInputGroup
           :help="evaluation"
+          name="expression"
           label="Cron Expression"
+          class="flex-grow max-w-sm"
         >
           <UInput
             v-model="expression"
             name="expression"
-            placeholder="you@example.com"
+            placeholder="* * * * * *"
           />
         </UInputGroup>
       </ClientOnly>
-    </div>
-  </UContainer>
+    </UContainer>
+    <Footer />
+  </div>
 </template>
 
 <script setup>
 import cron from 'cronstrue';
 
 const expression = ref('* * * * * *');
-const evaluation = computed(() => cron.toString(expression.value, {
-  throwExceptionOnParseError: false,
-  use24HourTimeFormat: true,
-}));
+const evaluation = computed(() => {
+  try {
+    return cron.toString(expression.value, { use24HourTimeFormat: true });
+  } catch (error) {
+    return error.toString();
+  }
+});
 
 useHead({
   title: 'Understand Cron',
