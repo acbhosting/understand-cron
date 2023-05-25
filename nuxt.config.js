@@ -6,4 +6,7 @@ export default defineNuxtConfig({
     },
   },
   modules: ['@nuxthq/ui'],
+  ui: {
+    icons: ['heroicons', 'simple-icons'],
+  },
 });
