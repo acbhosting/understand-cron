@@ -1,5 +1,6 @@
 <template>
   <div class="min-h-screen flex flex-col">
+    <Header />
     <UContainer class="flex flex-grow justify-center items-center w-full">
       <ClientOnly>
         <UInputGroup
@@ -38,7 +39,7 @@ useHead({
     lang: 'en',
   },
   bodyAttrs: {
-    class: 'antialiased font-sans text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-900',
+    class: 'antialiased font-sans text-gray-700 dark:text-gray-400 bg-white dark:bg-gray-900',
   },
 });
 </script>
